@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/PrefabMain/Scenes/Test_Map.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
