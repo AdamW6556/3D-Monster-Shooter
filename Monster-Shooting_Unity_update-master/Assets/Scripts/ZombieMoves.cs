@@ -49,12 +49,12 @@ public class ZombieMoves : MonoBehaviour
          if(distance < CatchDistance && CanAttack && !PlayerHealth.singleton.IsDeadPlayer)
          {
              AttackPlayer();
-            //ZombieVoice.PlayOneShot(zombievoice);
+            
          }
          else if(distance > CatchDistance && !isMonsterDead)
          {
              CatchPlayer();
-           // ZombieVoice.PlayOneShot(zombievoice);
+          
 
         }
         else if (PlayerHealth.singleton.IsDeadPlayer)

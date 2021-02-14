@@ -10,6 +10,14 @@ TagManager:
   - AmmoPack
   - HealthPack
   - Wingame
+  - Doorright
+  - OpDoors
+  - Keys
+  - WhiteKeyDoors
+  - GoldKeyDoors
+  - DarkKeyDoors
+  - HeadofZombie
+  - GreyKeyDoors
   layers:
   - Default
   - TransparentFX

@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
     float damageZombie = 10f;
 
     [SerializeField]
-    float headshootDamage = 100f;
+    float headshootDamage = 200f;
 
     public ParticleSystem shootefect;
 
@@ -42,6 +42,7 @@ public class Weapon : MonoBehaviour
     public AudioClip gunvoice;
     public AudioClip emptyfire;
     public AudioClip reloadvoice;
+    public AudioClip headshootvoice;
 
     //blood effect from enemy
 
@@ -197,16 +198,16 @@ public class Weapon : MonoBehaviour
                 //Debug.DrawLine(shootMark.position, hit.point);
                 //Debug.Log(hit.transform.tag);
             }
-           /* else if (hit.transform.tag == "Head")
+            else if (hit.transform.tag == "HeadofZombie")
             {
-
-                ZombieHealth zombiehealth = hit.transform.GetComponent<ZombieHealth>();
-                zombiehealth.HealthAmount(headshootDamage);
-
-                Instantiate(bloodfromEnemy, hit.point, transform.rotation);
-               //hit.transform.gameObject.SetActive(false);
                 Debug.Log("headshoot");
-            }*/
+                ZombieHealth zombiehealth = hit.transform.GetComponentInParent<ZombieHealth>();
+                zombiehealth.HealthAmount(headshootDamage);
+                gunshootv1.PlayOneShot(headshootvoice);
+                Instantiate(bloodfromEnemy, hit.point, transform.rotation);
+               hit.transform.gameObject.SetActive(false);
+                
+            }
             else
             {
 

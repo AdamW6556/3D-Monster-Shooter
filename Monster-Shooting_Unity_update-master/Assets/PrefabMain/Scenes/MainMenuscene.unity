@@ -845,8 +845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -42.458, y: 80}
-  m_SizeDelta: {x: 939.0845, y: 247.36792}
+  m_AnchoredPosition: {x: 8, y: 149}
+  m_SizeDelta: {x: 941.322, y: 229.03735}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &97582032
 MonoBehaviour:
@@ -1004,8 +1004,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -117}
-  m_SizeDelta: {x: 1021.75525, y: 238.66342}
+  m_AnchoredPosition: {x: 10, y: -110}
+  m_SizeDelta: {x: 1097.5021, y: 232.3317}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &125386800
 MonoBehaviour:
@@ -1044,6 +1044,7 @@ MonoBehaviour:
     SHIFT TO RUN!
 
     SHOOT ENEMY WITH LEFT MOUSE CLICK AND RELOAD AMMO BY: Q KEY!
+
 
     ALSO
     FIND ITEMS AROUND THE MAP AND PICK THEM BY: E KEY!
@@ -1170,7 +1171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28, y: -270}
+  m_AnchoredPosition: {x: -28, y: -319}
   m_SizeDelta: {x: 1000, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &273390569

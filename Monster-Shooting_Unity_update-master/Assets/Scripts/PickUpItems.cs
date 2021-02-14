@@ -15,11 +15,17 @@ public class PickUpItems : MonoBehaviour
     [SerializeField]
     float pickdistance = 0.5f;
 
+    
 
+    public Text keytextpickwhite;
+    public Text keytextpickdark;
+    public Text keytextpickgold;
+    public Text keytextpickgrey;
 
     Camera maincamera;
 
     public Text textpick;
+
 
     Weapon weaponScript;
 
@@ -31,7 +37,9 @@ public class PickUpItems : MonoBehaviour
     public AudioClip pickaudioammosound;
     public AudioClip pickaudiohealthsound;
     public AudioClip winsound;
+    public AudioClip pickkeysound;
     AudioSource picksound;
+    string itemtag;
 
     private void Start()
     {
@@ -48,7 +56,9 @@ public class PickUpItems : MonoBehaviour
         {
             textpick.enabled = true;
             textpick.text = hit.transform.name.ToString();
-
+            itemtag = hit.transform.tag;
+            CheckItemTag();
+            /*
             if (hit.transform.tag == "AmmoPack")
             {
                 infopick = "AMMO PACK (PICK 'E')";
@@ -79,6 +89,12 @@ public class PickUpItems : MonoBehaviour
                 Finalescape();
 
             }
+            else if (hit.transform.tag == "OpDoors")
+            {
+                infopick = "OPEN DOORS! ('E')";
+                textpick.text = infopick;
+            }
+            */
         }       
         else
         {
@@ -107,6 +123,10 @@ public class PickUpItems : MonoBehaviour
             picksound.PlayOneShot(winsound);
             Endscrn.gameObject.SetActive(true);
             Time.timeScale = 0f;
+            keytextpickdark.enabled = false;
+            keytextpickgold.enabled = false;
+            keytextpickgrey.enabled = false;
+            keytextpickwhite.enabled = false;
             //winscene.Winscreen();
         }
     }
@@ -143,6 +163,100 @@ public class PickUpItems : MonoBehaviour
                 PlayerHealth.singleton.Addhealth(healthbox);
             }
         }
+    }
+
+    void PickUpKey()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            picksound.PlayOneShot(pickkeysound);
+            Destroy(hit.transform.gameObject);
+
+
+        }
+    }
+
+    void CheckItemTag()
+    {
+        switch (itemtag)
+        {
+            case "AmmoPack":
+                if (hit.transform.tag == "AmmoPack")
+                {
+                    infopick = "AMMO PACK (PICK 'E')";
+                    textpick.text = infopick;
+                    Pickkey();
+                }
+                break;
+            case "HealthPack":
+                if (hit.transform.tag == "HealthPack")
+                {
+
+                    if (PlayerHealth.singleton.CurrentHealth < PlayerHealth.singleton.MaximumHealth)
+                    {
+                        Pickhealth();
+                        infopick = "HEALTH PACK (PICK 'E')";
+                        textpick.text = infopick;
+                    }
+                    else
+                    {
+                        infopick = "HEALTH FULL!";
+                        textpick.text = infopick;
+
+                    }
+
+                }
+                break;
+            case "Wingame":
+                if (hit.transform.tag == "Wingame")
+                {
+                    infopick = "CLICK 'M' TO FINAL \n ESCAPE FROM DUNGEON!";
+                    textpick.text = infopick;
+                    Finalescape();
+                }
+                break;
+            case "OpDoors":
+                if (hit.transform.tag == "OpDoors")
+                {
+                    infopick = "OPEN DOORS! (PICK 'E')";
+                    textpick.text = infopick;
+                }
+                break;
+            case "WhiteKeyDoors":
+                if (hit.transform.tag == "WhiteKeyDoors")
+                {
+                    infopick = "WHITE KEY REQUIRED TO OPEN THIS DOOR! (PICK 'E')";
+                    textpick.text = infopick;
+                }
+                break;
+            case "DarkKeyDoors":
+                if (hit.transform.tag == "DarkKeyDoors")
+                {
+                    infopick = "DARK KEY REQUIRED TO OPEN THIS DOOR! (PICK 'E')";
+                    textpick.text = infopick;
+                }
+                break;
+            case "GoldKeyDoors":
+                if (hit.transform.tag == "GoldKeyDoors")
+                {
+                    infopick = "GOLD KEY REQUIRED TO OPEN THIS DOOR! (PICK 'E')";
+                    textpick.text = infopick;
+                }
+                break;
+            case "GreyKeyDoors":
+                if (hit.transform.tag == "GreyKeyDoors")
+                {
+                    infopick = "GREY KEY REQUIRED TO OPEN THIS DOOR! (PICK 'E')";
+                    textpick.text = infopick;
+                }
+                break;
+            case "Keys":
+                PickUpKey();
+                break;
+            default:
+                break;
+        }
+
     }
     
 }

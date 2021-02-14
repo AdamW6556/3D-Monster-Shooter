@@ -51,7 +51,7 @@ public class ZombieHealth : MonoBehaviour
 
         MainUI.instance.killsnumber++;
         MainUI.instance.Updatenumofkills();
-        Destroy(gameObject, 1);
+        Destroy(gameObject, (float)1.5);
 
 
     }

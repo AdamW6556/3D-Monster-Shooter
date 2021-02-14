@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
 
+    public Text keytextpickwhite;
+    public Text keytextpickdark;
+    public Text keytextpickgold;
+    public Text keytextpickgrey;
     //public Weapon weapon;
     // Start is called before the first frame update
     public GameObject Endscrn;
@@ -29,12 +34,19 @@ public class DeathScreen : MonoBehaviour
         }
         Time.timeScale = 0f;
 
+        keytextpickdark.enabled = false;
+        keytextpickgold.enabled = false;
+        keytextpickgrey.enabled = false;
+        keytextpickwhite.enabled = false;
+
+
     }
 
     public void ReturntoMenu()
     {
         SceneManager.LoadScene(0);
-  
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenuscene"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneAt(0));
     }
 
     public void QuitGame()
